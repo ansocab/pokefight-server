@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const Game = require("./game");
 
 const connectDB = () => {
-  return mongoose.connect(process.env.DATABASE_URL);
+  mongoose.set('useUnifiedTopology', true);
+  return mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 };
 
 exports.Game = Game;
