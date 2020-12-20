@@ -1,6 +1,5 @@
 let jsonData = require('../models/pokemonData.js');
 
-
 exports.getAllPokemon = async function (req, res) {
     res.send(jsonData);
 }

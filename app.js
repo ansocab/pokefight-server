@@ -7,6 +7,7 @@ const {connectDB} = require("./models")
 const cors = require("cors");
 const pokemonRouter = require("./routes/pokemon");
 const gameRouter = require("./routes/game");
+const typeRouter = require("./routes/type");
 
 var app = express();
 app.use(cors());
@@ -21,6 +22,7 @@ app.use(logger("dev"));
 
 app.use("/pokemon", pokemonRouter);
 app.use("/game", gameRouter);
+app.use("/type", typeRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
