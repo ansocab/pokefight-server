@@ -6,6 +6,6 @@ exports.saveGameResult = async (req, res) => {
 };
 
 exports.getLeaderboard = async (req, res) => {
-  const games = await Game.find().sort({ defeated_pokemon: 1 });
+  const games = await Game.find().sort({ defeated_pokemon: -1 });
   res.send(games);
 };
