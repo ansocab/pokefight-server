@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const { getAllPokemon, getOnePokemon, getOnePokemonInfo } = require("../controllers/pokemon");
+const { getPokemonPage, getAllPokemon, getOnePokemon, getOnePokemonInfo } = require("../controllers/pokemon");
 
-/* GET home page. */
-router.get('/', getAllPokemon);
+router.get('/page', getPokemonPage);
 router.get('/:id', getOnePokemon);
 router.get('/:id/:info', getOnePokemonInfo);
+router.get('/', getAllPokemon);
 
 module.exports = router;
 

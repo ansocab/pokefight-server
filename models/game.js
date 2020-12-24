@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 
 const GameSchema = new mongoose.Schema(
   {
-    pokemon_one: String,
-    pokemon_two: String,
-    number_of_rounds: Number,
-    result: String,
+    name: String,
+    pokemon: String,
+    defeated_pokemon: Number,
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 const Game = mongoose.model("game", GameSchema);

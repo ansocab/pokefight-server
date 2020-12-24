@@ -2,19 +2,20 @@ const { json } = require("express");
 let jsonData = require("../models/pokemonData.js");
 
 exports.getAllPokemon = async function (req, res) {
+  res.send(jsonData);
+}
+
+exports.getPokemonPage = async function (req, res) {
   const limit = 15;
   const totalPages = jsonData.length / limit;
   const page = parseInt(req.query.page);
 
-  if (page === undefined) {
-    return res.send(jsonData);
-  }
-  if (page > totalPages) {
-    return res.status(404).send("Page with this number not available");
+  if (page > totalPages+1 || page === 0 || !page) {
+    return res.status(404).send(`Page with this number is not available. Page range goes from 1 to ${Math.ceil(totalPages)}`);
   }
 
   const pokemonPage = await jsonData.slice(limit * (page - 1), limit * page);
-  res.send(pokemonPage);
+  res.send({pokemon_list: pokemonPage, current_page: page, total_pages: Math.ceil(totalPages)});
 };
 
 exports.getOnePokemon = async function (req, res) {
