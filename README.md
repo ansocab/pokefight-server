@@ -8,7 +8,7 @@ Based on a group project with [Abhoy-Tripathy](https://github.com/Abhoy-Tripathy
 
 **Live demo: https://pokemonrps.netlify.app/**
 
-![Live app screenshot](src/assets/screenshot.png)
+![Live app screenshot](screenshot.png)
 
 
 Code frontend: [github.com/ansocab/pokefight-client](https://github.com/ansocab/pokefight-client)
