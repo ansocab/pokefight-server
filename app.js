@@ -11,15 +11,10 @@ const typeRouter = require("./routes/type");
 const searchRouter = require("./routes/search");
 
 var app = express();
-app.use(cors());
+app.use(cors({origin: ["http://localhost:3000", "https://pokemonrps.netlify.app/"]}));
 app.use(express.json());
 const { PORT = 4000 } = process.env;
 app.use(logger("dev"));
-
-//connect to DB
-//mongoose.connect(process.env.DB_Connect, { useNewUrlParser: true }, () =>
-//  console.log("connected to db")
-//)//;
 
 app.use("/pokemon", pokemonRouter);
 app.use("/game", gameRouter);
@@ -43,7 +38,3 @@ app.use(function (err, req, res, next) {
     console.log("Server listening in http://localhost:" + PORT)
   );
 })();
-
-//app.listen(PORT, () => {
-//  console.log(`Server sucessfully runing on Port ${PORT}`);
-//});
