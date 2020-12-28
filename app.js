@@ -11,19 +11,7 @@ const typeRouter = require("./routes/type");
 const searchRouter = require("./routes/search");
 
 var app = express();
-
-const whitelist = ["http://localhost:3000", "https://pokemonrps.netlify.app/"]
-const options = {
-  origin: function(origin, callback) {
-    if(whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-} 
-app.use(cors(options));
-
+app.use(cors());
 app.use(express.json());
 const { PORT = 4000 } = process.env;
 app.use(logger("dev"));
